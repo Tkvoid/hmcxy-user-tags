@@ -33,6 +33,9 @@ object HBaseBulkLoader {
     "/user/hive/warehouse/tags_dat.db/tbl_orders",
     "/datas/output_hfile/tbl_tag_orders")
     */
+    val args = Array("4", "tbl_tag_orders", "detail",
+      "/user/hive/warehouse/tags_dat.db/tbl_orders",
+      "/datas/output_hfile/tbl_tag_orders")
     if (args.length != 5) {
       println("Usage: required params: <DataType> <HBaseTable><Family> <InputDir> <OutputDir>")
       System.exit(-1)

@@ -18,7 +18,10 @@ script:
 /export/scripts/zookeeper-start-cluster.sh
 
 hadoop：
- /export/servers/hadoop/sbin/start-all.sh
+/export/servers/hadoop/sbin/start-all.sh
+
+spark:
+/export/servers/spark-2.2.0-bin-2.6.0-cdh5.14.0/sbin/start-all.sh
 
 hue: 
 nohup /export/servers/hue/build/env/bin/supervisor >output 2>&1 &
@@ -34,6 +37,9 @@ http://bigdata-cdh01.itcast.cn:60010/master-status
 
 hue:
 http://bigdata-cdh01.itcast.cn:8888/hue
+
+spark(jobs 在运行的时候):
+http://192.168.59.1:4040/jobs/
 
 
 
