@@ -6,6 +6,39 @@
 
 视频地址: https://www.bilibili.com/video/BV1Mp4y1x7y7?from=search&amp;seid=8776407805922729018&amp;spm_id_from=333.337.0.0
 
+此项目仅作学习使用，具体资源请关注黑马程序员公众号，自行获取。
+
+# 虚拟机中的服务
+
+1. 启动服务
+```
+script: 
+/export/scripts/hdfs-start-cluster.sh
+/export/scripts/metastore-start.sh
+/export/scripts/zookeeper-start-cluster.sh
+
+hadoop：
+ /export/servers/hadoop/sbin/start-all.sh
+
+hue: 
+nohup /export/servers/hue/build/env/bin/supervisor >output 2>&1 &
+```
+
+2. 可访问服务列表
+
+hadoop:
+http://bigdata-cdh01.itcast.cn:8088/cluster
+
+hbase:
+http://bigdata-cdh01.itcast.cn:60010/master-status
+
+hue:
+http://bigdata-cdh01.itcast.cn:8888/hue
+
+
+
+备注: 需在宿主机中配置hostname后才能访问，若懒得配置，将bigdata-cdh01.itcast.cn修改为虚拟机ip后即可访问。
+
 # 部分导入指令
 
 ## MySQL数据库中表的数据导入到Hive表(使用SQOOP)
@@ -217,7 +250,7 @@ CREATE DATABASE tags_dat;
 
 2. Hbase出现ERROR: Can't get master address from ZooKeeper; znode data == null
 
-由于采用的是虚拟机经常有状态挂起，导致zookeeper或者hbase不稳定，因此，重启下Hbase就能解决。
+由于虚拟机经常有状态挂起，导致zookeeper或者hbase不稳定，因此，重启下Hbase就能解决。
 ```
 /export/servers/hadoop/sbin/stop-hbase.sh
 /export/servers/hadoop/sbin/start-hbase.sh
