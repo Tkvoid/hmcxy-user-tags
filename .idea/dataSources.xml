@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="bigdata-cdh01.itcast.cn" uuid="442f35d2-c29f-4a1f-9939-ea686d590cbe">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://bigdata-cdh01.itcast.cn:3306</jdbc-url>
+    </data-source>
+  </component>
+</project>

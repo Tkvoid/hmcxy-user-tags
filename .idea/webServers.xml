@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6d0d9f6c-d2c1-42db-90cc-7085e39305ac" name="bigdata-cdh01.itcast.cn" url="http://bigdata-cdh01.itcast.cn">
+        <fileTransfer host="bigdata-cdh01.itcast.cn" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
