@@ -109,7 +109,7 @@ public class HdfsTools {
      * @param dfsPath Hdfs路径
      * @return
      */
-    public boolean uploadlocalFile2HDFS(String srcPath, String dfsPath) {
+    public boolean uploadLocalFile2HDFS(String srcPath, String dfsPath) {
         boolean status = false;
         FileSystem fs = null;
         try {

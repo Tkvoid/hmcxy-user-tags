@@ -1,5 +1,6 @@
 package com.tkvoid.tags.web.controller;
 
+import com.tkvoid.tags.up.HdfsTools;
 import com.tkvoid.tags.web.bean.Codes;
 import com.tkvoid.tags.web.bean.HttpResult;
 import com.tkvoid.tags.web.bean.dto.ModelDto;
@@ -96,7 +97,7 @@ public class TagAndModelController {
     @PostMapping("tags/{id}/model")
     public HttpResult changeModelState(@PathVariable Long id, @RequestBody ModelDto modelDto) {
         tagService.updateModelState(id, modelDto.getState());
-        return new HttpResult(Codes.SUCCESS, "执行成功", null)
+        return new HttpResult(Codes.SUCCESS, "执行成功", null);
     }
 
     /**
