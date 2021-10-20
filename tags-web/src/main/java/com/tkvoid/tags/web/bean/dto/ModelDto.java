@@ -22,12 +22,12 @@ public class ModelDto {
     public static class Schedule {
         private Integer frequency;
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-        private Date starTime;
+        private Date startTime;
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
         private Date endTime;
         public String toPattern(){
             String schedule = "";
-            String starStr = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").format(starTime);
+            String starStr = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").format(startTime);
             String endStr = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").format(endTime);
             return frequency + ", " + starStr + ", " + endStr;
         }
@@ -37,13 +37,13 @@ public class ModelDto {
         }
 
     }
-    public Schedule parseDare(String sourceDate) {
+    public Schedule parseDate(String sourceDate) {
         Schedule schedule = new Schedule();
         try {
             String[] sourceArr = sourceDate.split(",");
             schedule.setFrequency(Integer.parseInt(sourceArr[0]));
-            schedule.setStarTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[1]));
-            schedule.setStarTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[2]));
+            schedule.setStartTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[1]));
+            schedule.setStartTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[2]));
         } catch (ParseException e) {
             e.printStackTrace();
         }

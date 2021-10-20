@@ -7,5 +7,6 @@
         <parameter value="D:\code\hmcxy-user-tags\tags-up\target/.scala_dependencies" />
       </parameters>
     </profile>
+    <profile name="Maven 2" modules="tags-etl,tags-model" />
   </component>
 </project>
