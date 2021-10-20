@@ -4,9 +4,11 @@ import com.tkvoid.tags.up.OozieParam;
 import com.tkvoid.tags.up.OozieUtils;
 import com.tkvoid.tags.web.bean.dto.ModelDto;
 import com.tkvoid.tags.web.service.Engine;
+import org.springframework.stereotype.Service;
 
 import java.util.Properties;
 
+@Service
 public class EngineImpl implements Engine {
     @Override
     public void startModel(ModelDto model) {
