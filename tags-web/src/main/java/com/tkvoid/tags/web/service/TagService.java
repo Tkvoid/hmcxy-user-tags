@@ -1,5 +1,9 @@
 package com.tkvoid.tags.web.service;
 
+import com.tkvoid.tags.web.bean.dto.ModelDto;
+import com.tkvoid.tags.web.bean.dto.TagDto;
+import com.tkvoid.tags.web.bean.dto.TagModelDto;
+
 import java.util.List;
 
 public interface TagService {
