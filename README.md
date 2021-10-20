@@ -12,6 +12,9 @@
 
 1. 启动服务
 ```
+详细参考:
+/root/env-bd.sh
+
 script: 
 /export/scripts/hdfs-start-cluster.sh
 /export/scripts/metastore-start.sh
@@ -41,6 +44,8 @@ http://bigdata-cdh01.itcast.cn:8888/hue
 spark(jobs 在运行的时候):
 http://192.168.59.1:4040/jobs/
 
+oozie:
+http://bigdata-cdh01.itcast.cn:11000/oozie/
 
 
 备注: 需在宿主机中配置hostname后才能访问，若懒得配置，将bigdata-cdh01.itcast.cn修改为虚拟机ip后即可访问。
