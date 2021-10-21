@@ -7,13 +7,14 @@ import com.tkvoid.tags.web.bean.dto.TagModelDto;
 import java.util.List;
 
 public interface TagService {
-    public void saveTags(List<TagDto> tags);
+    void saveTags(List<TagDto> tags);
 
     List<TagDto> findByPid(Long pid);
 
     List<TagDto> findByLevel(Integer level);
 
     void addTagModel(TagDto tag, ModelDto model);
+
 
     List<TagModelDto> findModelByPid(Long pid);
 
