@@ -32,8 +32,10 @@ public class ModelDto {
             return frequency + ", " + starStr + ", " + endStr;
         }
         public static String formatTime(Date time) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'+0800'");
-            return formatter.format(time);
+            String result = "";
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'+0800'");
+            result = formatter.format(time);
+            return result;
         }
 
     }
@@ -43,7 +45,7 @@ public class ModelDto {
             String[] sourceArr = sourceDate.split(",");
             schedule.setFrequency(Integer.parseInt(sourceArr[0]));
             schedule.setStartTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[1]));
-            schedule.setStartTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[2]));
+            schedule.setEndTime(FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss").parse(sourceArr[2]));
         } catch (ParseException e) {
             e.printStackTrace();
         }

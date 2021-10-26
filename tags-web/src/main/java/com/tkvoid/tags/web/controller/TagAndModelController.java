@@ -107,7 +107,7 @@ public class TagAndModelController {
      */
     @PostMapping("/tags/upload")
     public HttpResult<String> postTagsFile(@RequestParam("file") MultipartFile file) {
-        String basePath = "app/temp/jar";
+        String basePath = "apps/temp/jars/";
         // 创建Jar包名字
         String fileName = UUID.randomUUID().toString() + ".jar";
         String path = basePath + fileName;
@@ -115,7 +115,7 @@ public class TagAndModelController {
             InputStream inputStream = file.getInputStream();
             IOUtils.copy(inputStream, new FileOutputStream(new File("temp.jar")));
             HdfsTools.build().uploadLocalFile2HDFS("temp.jar",path);
-            return new HttpResult<>(Codes.SUCCESS, "", "hdfs://bigdata-cdh01.itcast.cn:8020"+path);
+            return new HttpResult<>(Codes.SUCCESS, "", "hdfs://bigdata-cdh01.itcast.cn:8020/"+path);
         }  catch (IOException e) {
             e.printStackTrace();
             return new HttpResult<>(Codes.ERROR, "文件上传失败", null);
