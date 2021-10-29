@@ -61,7 +61,7 @@ public class TagServiceImpl implements TagService {
             if (tmpPo == null) {
                 //肯定是第一次循环,此时肯定是一级标签
                 List<TagPo> list = tagRepo.findByNameAndLevelAndPid(tagPo.getName(), tagPo.getLevel(), tagPo.getPid());
-                if (list == null || list.size() == 0) {
+                if (list == null || list.size().isEmpty()) {
                     //没有查询到,那么就直接保存
                     tmpPo = tagRepo.save(tagPo);
                 } else {
@@ -74,7 +74,7 @@ public class TagServiceImpl implements TagService {
                 tagPo.setPid(tmpPo.getId());
                 //我们可以使用标签名称/等级/父id进行查询,如果能查到,那么我们就不保存了.
                 List<TagPo> list = tagRepo.findByNameAndLevelAndPid(tagPo.getName(), tagPo.getLevel(), tagPo.getPid());
-                if (list == null || list.size() == 0) {
+                if (list == null || list.size().isEmpty()) {
                     //没有查询到,那么就直接保存
                     tmpPo = tagRepo.save(tagPo);
                 } else {
@@ -90,17 +90,13 @@ public class TagServiceImpl implements TagService {
         List<TagPo> list = tagRepo.findByPid(pid);
         //将po集合转换为dto集合.
 
-//        for (TagPo tagPo : list) {
-//            TagDto dto = convert(tagPo);
-//        }
         return list.stream().map(this::convert).collect(Collectors.toList());
     }
 
     @Override
     public List<TagDto> findByLevel(Integer level) {
         List<TagPo> list = tagRepo.findByLevel(level);
-        List<TagDto> listDto = list.stream().map(this::convert).collect(Collectors.toList());
-        return listDto;
+        return list.stream().map(this::convert).collect(Collectors.toList());
     }
 
 
@@ -113,7 +109,7 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<TagModelDto> findModelByPid(Long pid) {
         List<TagPo> tagPos = tagRepo.findByPid(pid);
-        return tagPos.stream().map((tagPo) -> {
+        return tagPos.stream().map(tagPo -> {
             Long id = tagPo.getId();
             ModelPo modelPo = modelRepo.findByTagId(id);
             if (modelPo == null) {
@@ -135,11 +131,11 @@ public class TagServiceImpl implements TagService {
         ModelPo modelPo = modelRepo.findByTagId(id);
         //如果传递过来的状态是3,那么就是启动,如果是4那么就是停止
 
-        if (state == ModelPo.STATE_ENABLE) {
+        if (ModelPo.STATE_ENABLE.equals(state)) {
             //启动流程
             engine.startModel(convert(modelPo));
         }
-        if (state == ModelPo.STATE_DISABLE) {
+        if (ModelPo.STATE_DISABLE.equals(state)) {
             //关闭流程
             engine.stopModel(convert(modelPo));
         }
